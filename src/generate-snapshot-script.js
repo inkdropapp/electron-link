@@ -22,7 +22,10 @@ module.exports = async function (cache, options) {
       relativeFilePath = './' + relativeFilePath
     }
     if (!moduleASTs[relativeFilePath]) {
-      const source = fs.readFileSync(filePath, 'utf8')
+      let source = fs.readFileSync(filePath, 'utf8')
+      if (typeof options.transformSource === 'function') {
+        source = options.transformSource(source, filePath)
+      }
       let foundRequires = []
       const transform = new FileRequireTransform({
         filePath,
