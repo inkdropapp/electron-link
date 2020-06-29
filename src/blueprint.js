@@ -16,7 +16,9 @@ function generateSnapshot () {
   function createElement(_type) {
     return {
       innerHTML: '',
-      style: {}
+      style: {},
+      setAttribute: () => {},
+      oncopy: () => {}
     }
   }
 
@@ -32,15 +34,26 @@ function generateSnapshot () {
     'addEventListener': {value: function() {}, enumerable: false},
     'documentElement': {value: documentElement, enumerable: false},
     'oninput': {value: {}, enumerable: false},
-    'onchange': {value: {}, enumerable: false}
+    'onchange': {value: {}, enumerable: false},
+    'createRange': { value: function () { return true }, enumerable: false }
   })
   function get_document () {
     return document
   }
 
+  let navigator = {
+    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) inkdrop/4.7.0-beta.2 Chrome/80.0.3987.158 Electron/8.2.0 Safari/537.36"',
+    platform: 'MacIntel'
+  }
+  function get_navigator() {
+    return navigator;
+  }
+
+
   let global = {}
   Object.defineProperties(global, {
     'document': {value: document, enumerable: false},
+    'navigator': { value: navigator, enumerable: false },
     'process': {value: process, enumerable: false},
     'WeakMap': {value: WeakMap, enumerable: false},
     'isGeneratingSnapshot': {value: true, enumerable: false}
@@ -219,6 +232,7 @@ function generateSnapshot () {
   let window = {}
   Object.defineProperties(window, {
     'document': {value: document, enumerable: false},
+    'navigator': { value: navigator, enumerable: false },
     'location': {value: {href: ''}, enumerable: false},
     'addEventListener': {value: function(){}, enumerable: false},
     'screen': {value: {}, enumerable: false},

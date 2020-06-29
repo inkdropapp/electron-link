@@ -219,12 +219,12 @@ suite('generateSnapshotScript({baseDirPath, mainPath})', () => {
 
     assert.deepEqual(snapshotResult.translateSnapshotRow(10), {relativePath: '<embedded>', row: 10})
     assert.deepEqual(snapshotResult.translateSnapshotRow(276), {relativePath: '<embedded>', row: 276})
-    assert.deepEqual(snapshotResult.translateSnapshotRow(277), {relativePath: '../fixtures/module-1/index.js', row: 0})
-    assert.deepEqual(snapshotResult.translateSnapshotRow(290), {relativePath: '../fixtures/module-1/index.js', row: 13})
-    assert.deepEqual(snapshotResult.translateSnapshotRow(291), {relativePath: '<embedded>', row: 291})
-    assert.deepEqual(snapshotResult.translateSnapshotRow(298), {relativePath: '../fixtures/module-1/dir/a.js', row: 5})
-    assert.deepEqual(snapshotResult.translateSnapshotRow(309), {relativePath: '../fixtures/module-1/node_modules/a/index.js', row: 0})
-    assert.deepEqual(snapshotResult.translateSnapshotRow(311), {relativePath: '<embedded>', row: 311})
+    assert.deepEqual(snapshotResult.translateSnapshotRow(277 + 14), {relativePath: '../fixtures/module-1/index.js', row: 0})
+    assert.deepEqual(snapshotResult.translateSnapshotRow(290 + 14), {relativePath: '../fixtures/module-1/index.js', row: 13})
+    assert.deepEqual(snapshotResult.translateSnapshotRow(291 + 14), {relativePath: '<embedded>', row: 291 + 14})
+    assert.deepEqual(snapshotResult.translateSnapshotRow(298 + 14), {relativePath: '../fixtures/module-1/dir/a.js', row: 5})
+    assert.deepEqual(snapshotResult.translateSnapshotRow(309 + 14), {relativePath: '../fixtures/module-1/node_modules/a/index.js', row: 0})
+    assert.deepEqual(snapshotResult.translateSnapshotRow(311 + 14), {relativePath: '<embedded>', row: 311 + 14})
 
     await cache.dispose()
   })
