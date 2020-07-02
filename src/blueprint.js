@@ -236,6 +236,7 @@ function generateSnapshot () {
     'location': {value: {href: ''}, enumerable: false},
     'addEventListener': {value: function(){}, enumerable: false},
     'screen': {value: {}, enumerable: false},
+    'getSelection': {value: function(){}, enumerable: false},
   })
   function get_window () {
     return window
