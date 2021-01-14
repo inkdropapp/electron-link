@@ -1,35 +1,31 @@
 {
   "name": "inkdrop-electron-link",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Generates scripts to pass to V8's `mksnapshot` tool.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha test/**/*.test.js --ui=tdd --compilers js:babel-register",
-    "tdd": "electron-mocha test/**/*.test.js --ui=tdd --renderer --interactive --compilers js:babel-register",
-    "prepublish": "rimraf lib && babel src -d lib"
+    "test": "mocha test/**/*.test.js --ui=tdd",
+    "tdd": "electron-mocha test/**/*.test.js --ui=tdd --renderer --interactive"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-async-to-generator": "^6.22.0",
-    "babel-register": "^6.23.0",
-    "dedent": "^0.6.0",
-    "electron": "^2.0.18",
-    "electron-mocha": "^3.3.0",
-    "mocha": "^3.2.0",
-    "rimraf": "^2.7.1",
-    "temp": "^0.8.4"
+    "dedent": "0.7.0",
+    "electron": "^9",
+    "electron-mocha": "^10.0.0",
+    "mocha": "^8.2.1",
+    "rimraf": "3.0.2",
+    "temp": "0.9.4"
   },
   "dependencies": {
-    "acorn": "^6.1.1",
-    "ast-util": "^0.6.0",
-    "encoding-down": "^5.0.4",
-    "indent-string": "^3.2.0",
-    "leveldown": "^5.4.1",
-    "levelup": "~3.0.0",
-    "recast": "^0.17.6",
-    "resolve": "^1.13.1",
-    "source-map": "^0.5.6"
+    "acorn": "^8.0.4",
+    "ast-util-plus": "^0.7.1",
+    "encoding-down": "^6.3.0",
+    "indent-string": "^4.0.0",
+    "leveldown": "^5.6.0",
+    "levelup": "^4.4.0",
+    "recast": "^0.20.4",
+    "resolve": "^1.19.0",
+    "source-map": "^0.7.3"
   }
 }
