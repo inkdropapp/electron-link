@@ -294,7 +294,6 @@ function generateSnapshot () {
   }
 
   customRequire(mainModuleRequirePath)
-  customRequire.definitions = {}
   return {
     customRequire,
     setGlobals: function (newGlobal, newProcess, newWindow, newDocument, newConsole, nodeRequire) {
