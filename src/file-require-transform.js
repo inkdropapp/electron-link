@@ -5,7 +5,7 @@ const astUtil = require('ast-util')
 const b = recast.types.builders
 const resolve = require('resolve')
 
-const GLOBALS = new Set(['global', 'window', 'process', 'document', 'console'])
+const GLOBALS = new Set(['global', 'window', 'process', 'document', 'console', 'navigator'])
 const NODE_CORE_MODULES = new Set([
   'assert', 'buffer', 'child_process', 'cluster', 'constants', 'crypto',
   'dgram', 'dns', 'domain', 'events', 'fs', 'http', 'https', 'module', 'net',
